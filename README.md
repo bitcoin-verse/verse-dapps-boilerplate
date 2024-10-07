@@ -21,7 +21,7 @@ This boilerplate provides a solid foundation for building decentralized applicat
    ```
    yarn install
    ```
-3. Create .env.development (or .env):
+3. Create .env.development (or .env depending on environment), edit to add your projectId:
    ```
    cp .env.sample .env.development
    ```
