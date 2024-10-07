@@ -21,7 +21,11 @@ This boilerplate provides a solid foundation for building decentralized applicat
    ```
    yarn install
    ```
-3. Run the development server:
+3. Create .env.development (or .env):
+   ```
+   cp .env.sample .env.development
+   ```
+4. Run the development server:
    ```
    yarn dev
    ```
