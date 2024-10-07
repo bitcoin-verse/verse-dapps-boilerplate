@@ -4,7 +4,7 @@ import React, { useMemo } from "react";
 import { createConfig, fallback, http, WagmiProvider } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { type Chain, holesky, mainnet, polygon, sepolia } from "wagmi/chains";
-import { injected } from "wagmi/connectors";
+import { injected, walletConnect } from "wagmi/connectors";
 import { structuralSharing } from "@wagmi/core/query";
 
 import {
@@ -29,6 +29,7 @@ export function ProvidersWrapper({
 }>) {
   const { chain } = useParams<{ chain?: string }>();
 
+  const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECTID ?? "";
   const getChain = (chain: string): readonly [Chain, ...Chain[]] => {
     if (chain === "sepolia") return [sepolia];
     return [mainnet];
@@ -43,9 +44,9 @@ export function ProvidersWrapper({
         [mainnet.id]: fallback([http(RPC_URL_ETHEREUM), http()]),
         [sepolia.id]: fallback([http(RPC_URL_SEPOLIA), http()]),
       },
-      connectors: [injected()],
+      connectors: [injected(), walletConnect({ projectId })],
     });
-  }, []);
+  }, [chain, projectId]);
 
   return (
     <WagmiProvider config={wagmiConfig}>

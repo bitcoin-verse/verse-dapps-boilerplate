@@ -1,4 +1,4 @@
-import { Hash } from "viem";
+import { type Hash } from "viem";
 import { mainnet, sepolia } from "wagmi/chains";
 
 interface ContractAddresses {
