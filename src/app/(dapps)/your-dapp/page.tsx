@@ -6,33 +6,39 @@ import { useAccount, useConnect } from "wagmi";
 import { useEffect, useState } from "react";
 import { mainnet, sepolia } from "viem/chains";
 import { useParams } from "next/navigation";
-import { Button } from "../../../components/ui/button";
+import { Button } from "@/components/ui/button";
+import { useIsWallet } from "@/hooks/useIsWallet";
 
 export default function Home() {
   const { chain } = useParams<{ chain?: string }>();
   const { isConnected, status } = useAccount();
   const { connect, connectors } = useConnect();
+  const isWallet = useIsWallet();
 
   const [initialLoad, setInitialLoad] = useState(true);
 
   const handleConnectWallet = () => {
-    if (connectors[0]) {
+    const connector = connectors.find((c) => c.id === "walletConnect");
+    if (connector) {
       connect({
-        connector: connectors[0],
+        connector: connector,
         chainId: chain === "sepolia" ? sepolia.id : mainnet.id,
       });
     }
   };
 
   useEffect(() => {
-    if (initialLoad && connectors[0] && status === "disconnected") {
+    const connector = isWallet
+      ? connectors.find((c) => c.id === "walletConnect")
+      : connectors[0];
+    if (initialLoad && connector && status === "disconnected") {
       connect({
-        connector: connectors[0],
+        connector: connector,
         chainId: chain === "sepolia" ? sepolia.id : mainnet.id,
       });
       setInitialLoad(false); // Prevent future re-connection attempts
     }
-  }, [status, isConnected, initialLoad, connectors, connect, chain]);
+  }, [status, isConnected, initialLoad, connectors, connect, chain, isWallet]);
 
   if (status === "connecting" || status === "reconnecting") {
     return <LoaderDots />;
