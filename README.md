@@ -54,21 +54,17 @@ The homepage (`app/page.tsx`) includes examples of contract interactions using W
 
 Each dApp is configured to automatically attempt to connect to the user's Web3 wallet. This functionality is implemented in the layout files to ensure consistent behavior across all pages.
 
+## 🌐 dApp Routing
+
+Your dApp should behave as if it is on the route `/your-dapp`. You may also pass `?origin=wallet` as a URL parameter to indicate the origin of the request.
+
+## 📱 Local Network Access
+
+If you want to access your app through a local network IP (e.g., `192.168.x.x`) while developing, you may need to whitelist your local network IP in WalletConnect site. This is necessary to allow your phone or other devices on the same network be able to get the connection options from WalletConnect.
+
 ## 🤝 Contract Interactions
 
 All contract interactions must be implemented using [Wagmi](https://wagmi.sh/). This ensures consistent and reliable communication with blockchain networks, including interactions with VERSE token contracts. Refer to the Wagmi documentation for detailed usage instructions.
-
-## 🖥️ Client-Side Rendering
-
-This NextJS app is configured to export as a client-side application using the `output: export` option in the Next.js configuration. This means that the app will be rendered entirely on the client-side, which is ideal for Web3 applications that require frequent interactions with blockchain networks.
-
-To build the app for production:
-
-```
-yarn build
-```
-
-This will generate a static export in the `out` directory, which can be deployed to any static hosting service.
 
 ## 📦 Package Management
 
