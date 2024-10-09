@@ -5,6 +5,7 @@ import { CONTRACT_ADDRESSES } from "../utils/constants";
 import { mainnet } from "viem/chains";
 import { erc20Abi, formatUnits } from "viem";
 import VerseLogo from "./ui/svg/verse-logo";
+import { useEffect } from "react";
 
 export default function Balance(props: React.HTMLAttributes<HTMLDivElement>) {
   const { isConnected, chainId, address } = useAccount();
@@ -16,6 +17,10 @@ export default function Balance(props: React.HTMLAttributes<HTMLDivElement>) {
     abi: erc20Abi,
     args: [address!],
   });
+
+  useEffect(() => {
+    console.log("isConnected", isConnected);
+  }, [isConnected, chainId]);
 
   return (
     isConnected && (

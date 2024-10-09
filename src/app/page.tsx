@@ -1,18 +1,7 @@
-"use client";
-import dynamic from "next/dynamic";
-
-const Connect = dynamic(() => import("@/components/connect"), {
-  ssr: false,
-});
-const Balance = dynamic(() => import("@/components/balance"), {
-  ssr: false,
-});
-const Staking = dynamic(() => import("@/components/stake"), {
-  ssr: false,
-});
-const Interactions = dynamic(() => import("@/components/interactions"), {
-  ssr: false,
-});
+import Connect from "@/components/connect";
+import Balance from "@/components/balance";
+import Staking from "@/components/stake";
+import Interactions from "@/components/interactions";
 
 export default function Home() {
   return (

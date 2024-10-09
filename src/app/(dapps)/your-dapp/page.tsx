@@ -15,8 +15,6 @@ export default function Home() {
   const { connect, connectors } = useConnect();
   const isWallet = useIsWallet();
 
-  const [initialLoad, setInitialLoad] = useState(true);
-
   const handleConnectWallet = () => {
     const connector = connectors.find((c) => c.id === "walletConnect");
     if (connector) {
@@ -31,14 +29,13 @@ export default function Home() {
     const connector = isWallet
       ? connectors.find((c) => c.id === "walletConnect")
       : connectors[0];
-    if (initialLoad && connector && status === "disconnected") {
+    if (connector && status === "disconnected") {
       connect({
         connector: connector,
         chainId: chain === "sepolia" ? sepolia.id : mainnet.id,
       });
-      setInitialLoad(false); // Prevent future re-connection attempts
     }
-  }, [status, isConnected, initialLoad, connectors, connect, chain, isWallet]);
+  }, [status, isConnected, connectors, connect, chain, isWallet]);
 
   if (status === "connecting" || status === "reconnecting") {
     return <LoaderDots />;
