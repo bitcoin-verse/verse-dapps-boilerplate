@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0a2c;
+  --foreground: #171717;
+  --verse-blue: #0085ff;
+  --verse-pink: #db00ff;
+  --verse-disabled: #8792a8;
+  --color0: #ffffff;
+  --color200: #8b92aa;
+  --color400: #434c74;
+  --color600: #202b58;
+  --color800: #10183c;
+  --color1000: #0a0a2c;
+  --success25: #1c4252;
+  --success100: #52e0c8;
+  --warning25: #433936;
+  --warning100: #ebc146;
+  --failed25: #422133;
+  --failed100: #eb6547;
+}
+
+@font-face {
+  font-family: "LTSaeada";
+  src: url("/fonts/LTSaeada-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LTSaeada";
+  src: url("/fonts/LTSaeada-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LTSaeada";
+  src: url("/fonts/LTSaeada-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LTSaeada";
+  src: url("/fonts/LTSaeada-Black.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LTSaeada";
+  src: url("/fonts/LTSaeada-ExtraBlack.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+body {
+  min-height: 100%;
+  font-family: "LTSaeada", sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}

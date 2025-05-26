@@ -10,14 +10,31 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        lt: ["var(--font-lt-saeada)", "sans-serif"],
+        lexend: ["var(--font-lexend)", "sans-serif"],
+        barlow: ["var(--font-barlow)", "sans-serif"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        verseColor: "var(--verse-color)",
+        verseBlue: "var(--verse-blue)",
         verseDisabled: "var(--verse-disabled)",
         maskImage: {
           gradient: "linear-gradient(black calc(100% - 1px), transparent 100%)",
         },
+        color0: "var(--color0)",
+        color200: "var(--color200)",
+        color400: "var(--color400)",
+        color600: "var(--color600)",
+        color800: "var(--color800)",
+        color1000: "var(--color1000)",
+        success25: "var(--success25)",
+        success100: "var(--success100)",
+        warning25: "var(--warning25)",
+        warning100: "var(--warning100)",
+        failed25: "var(--failed25)",
+        failed100: "var(--failed100)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -41,6 +58,10 @@ const config: Config = {
       animation: {
         "logo-bg": "change-logo-bg 6s linear infinite",
         "logo-bg-dark": "change-logo-bg-dark 6s linear infinite",
+      },
+      boxShadow: {
+        "inner-custom": "0px 1px 1px 0px #0000001A",
+        small: "0px 2px 60px 0px #2FA9EE33",
       },
     },
   },
