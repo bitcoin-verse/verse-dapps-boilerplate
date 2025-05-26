@@ -3,14 +3,15 @@
 import { Box } from "@/components/ui/box";
 import LoaderDots from "@/components/ui/loader-dots";
 import { useAccount, useConnect } from "wagmi";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { mainnet, sepolia } from "viem/chains";
-import { useParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { useIsWallet } from "@/hooks/useIsWallet";
+import { useSearchParams } from "next/navigation";
 
 export default function Home() {
-  const { chain } = useParams<{ chain?: string }>();
+  const searchParams = useSearchParams();
+  const chain = searchParams.get("chain");
   const { isConnected, status } = useAccount();
   const { connect, connectors } = useConnect();
   const isWallet = useIsWallet();
