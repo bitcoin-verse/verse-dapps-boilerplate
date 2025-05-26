@@ -1,6 +1,7 @@
 import Balance from "@/components/balance";
 import Staking from "@/components/stake";
 import Interactions from "@/components/interactions";
+import Loader from "@/components/ui/loader";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
         <Balance className="mt-4 duration-500 animate-in fade-in-50 zoom-in-90" />
         <Staking className="mt-4 duration-500 animate-in fade-in-50 zoom-in-90" />
         <Interactions className="mt-4 duration-500 animate-in fade-in-50 zoom-in-90" />
+        <Loader />
       </main>
     </div>
   );

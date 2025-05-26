@@ -54,10 +54,15 @@ const config: Config = {
           "50%": { backgroundImage: "url('/logo/frame3-dark.png')" },
           "75%": { backgroundImage: "url('/logo/frame4-dark.png')" },
         },
+        rotate: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
       },
       animation: {
         "logo-bg": "change-logo-bg 6s linear infinite",
         "logo-bg-dark": "change-logo-bg-dark 6s linear infinite",
+        rotate: "rotate 1s linear infinite",
       },
       boxShadow: {
         "inner-custom": "0px 1px 1px 0px #0000001A",
