@@ -1,5 +1,5 @@
 'use client'
-import Connect from "./connect-nav";
+import Connect from "./connect";
 import Chevron from "./ui/svg/chevron";
 import VerseIcon from "./ui/svg/verse-icon";
 

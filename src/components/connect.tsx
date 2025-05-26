@@ -1,42 +1,31 @@
 "use client";
-import { useAccount, useConnect, useDisconnect } from "wagmi";
-import { Box } from "@/components/ui/box";
+import { useAccount } from "wagmi";
 import { Button } from "@/components/ui/button";
-import { useEffect } from "react";
-import { useIsWallet } from "@/hooks/useIsWallet";
+import { shortenAddress } from "@/lib/utils";
+import WalletConnection from "./ui/svg/wallet-connection";
+import { modal } from "@reown/appkit/react";
 
 export default function Home() {
-  const { isConnected, chainId } = useAccount();
-  const { connect, connectors } = useConnect();
-  const { disconnect } = useDisconnect();
-  const isWallet = useIsWallet();
+  const { isConnected, address } = useAccount();
 
-  useEffect(() => {
-    if (isConnected) {
-      console.log("Connected to chain", chainId);
-    }
-  }, [isConnected, chainId]);
+  // Determine the button variant based on the connection status
+  const buttonVariant = isConnected ? "secondary" : "default";
 
   return (
-    <Box className="duration-500 animate-in fade-in-50 zoom-in-90">
-      <h1 className="text-subtle text-center text-xl font-bold dark:text-white">
-        Verse Boilerplate
-      </h1>
-      <Button
-        onClick={() => {
-          if (isConnected) {
-            disconnect();
-          } else {
-            const connector = isWallet
-              ? connectors.find((c) => c.id === "walletConnect")
-              : connectors[0];
-            if (connector) connect({ connector });
-          }
-        }}
-        className="mt-5 uppercase"
-      >
-        {isConnected ? "Disconnect Wallet" : "Connect Wallet"}
-      </Button>
-    </Box>
+    <Button
+      onClick={ async () => {
+        await modal?.open();
+      }}
+      className="flex items-center gap-2 font-lt font-medium"
+      variant={buttonVariant}
+    >
+      {isConnected && address ? (
+        <>
+          {shortenAddress(address)} <WalletConnection />
+        </>
+      ) : (
+        "Connect"
+      )}
+    </Button>
   );
 }
