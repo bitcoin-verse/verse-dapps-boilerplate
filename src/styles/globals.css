@@ -8,15 +8,18 @@
   --verse-blue: #0085ff;
   --verse-pink: #db00ff;
   --verse-disabled: #8792a8;
-  --success: #52e0c8;
-  --shades10: #030c14;
-  --shades50: #313e57;
-  --shades70: #586f91;
-  --shades80: #899bb5;
-  --shades90: #c5cedb;
+  --color0: #ffffff;
   --color200: #8b92aa;
+  --color400: #434c74;
   --color600: #202b58;
   --color800: #10183c;
+  --color1000: #0a0a2c;
+  --success25: #1c4252;
+  --success100: #52e0c8;
+  --warning25: #433936;
+  --warning100: #ebc146;
+  --failed25: #422133;
+  --failed100: #eb6547;
 }
 
 @font-face {
