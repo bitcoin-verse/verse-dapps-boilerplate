@@ -6,7 +6,7 @@ interface DrawerContentProps {
 
 const DrawerContent: React.FC<DrawerContentProps> = ({ children }) => {
   return (
-    <div className="flex w-full flex-1 flex-col items-center gap-6 rounded-t-lg bg-[#250a2e]">
+    <div className="flex w-full flex-1 flex-col items-center gap-6 rounded-t-lg bg-background">
       <div className="mt-3">{children}</div>
     </div>
   );

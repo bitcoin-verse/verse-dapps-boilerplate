@@ -1,23 +1,15 @@
 "use client";
 
 import React, { type FC, type PropsWithChildren } from "react";
-import { type State } from "wagmi";
 
 import WagmiDappProvider from "./WagmiDappProvider";
 
 interface Props {
-  initialState?: State;
+  cookies?: string | null | undefined;
 }
 
-const Providers: FC<PropsWithChildren<Props>> = ({
-  children,
-  initialState,
-}) => {
-  return (
-    <WagmiDappProvider initialState={initialState}>
-      {children}
-    </WagmiDappProvider>
-  );
+const Providers: FC<PropsWithChildren<Props>> = ({ children, cookies }) => {
+  return <WagmiDappProvider cookies={cookies}>{children}</WagmiDappProvider>;
 };
 
 export default Providers;
