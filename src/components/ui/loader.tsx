@@ -1,4 +1,5 @@
 import React from "react";
+import LoaderIcon from "./svg/loader-icon";
 
 interface LoaderProps {
   size?: number;
@@ -6,16 +7,9 @@ interface LoaderProps {
 
 const Loader: React.FC<LoaderProps> = ({ size = 52 }) => {
   return (
-    <div className="text-center">
       <div className="flex items-center justify-center">
-        <div
-          className="animate-spin rounded-full border-b-2 border-t-2 border-blue-500"
-          style={{ height: `${size}px`, width: `${size}px` }}
-        >
-          &nbsp;
-        </div>
+        <LoaderIcon size={size} />
       </div>
-    </div>
   );
 };
 
