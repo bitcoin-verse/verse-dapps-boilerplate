@@ -6,10 +6,10 @@ This boilerplate provides a solid foundation for building decentralized applicat
 
 ## ✨ Features
 
-- 🚀 [NextJS 13+](https://nextjs.org/docs) with App Router
+- 🚀 [NextJS 13+](https://nextjs.org/docs) with Pages Router
 - 🦾 [TypeScript](https://www.typescriptlang.org/docs/) for type safety
 - 🎨 [Tailwind CSS](https://tailwindcss.com/docs) for styling
-- 🌍 Web3 integration with [Wagmi](https://wagmi.sh/)
+- 🌍 Web3 integration with [Wagmi](https://wagmi.sh/) and [Reown] (https://docs.reown.com/overview)
 - 🧶 [Yarn v1](https://classic.yarnpkg.com/en/docs) as package manager
 - 🖥️ Client-side rendering with `output: export`
 - 🪙 Integration with Bitcoin.com VERSE token ecosystem
@@ -35,24 +35,22 @@ This boilerplate provides a solid foundation for building decentralized applicat
 The project follows a modular structure to organize different dApps:
 
 ```
-app/
+pages/
   (dapp)/
     YOUR-DAPP/
-      page.tsx
-      layout.tsx
-  page.tsx
-  layout.tsx
+      index.tsx
+  index.tsx
 ```
 
-To add a new dApp, create a new folder inside `app/(dapp)/` with your dApp's name. This folder should contain at least a `page.tsx` file.
+To add a new dApp, create a new folder inside `pages/(dapp)/` with your dApp's name. This folder should contain at least a `index.tsx` file.
 
 ## 🏠 Homepage and Examples
 
-The homepage (`app/page.tsx`) includes examples of contract interactions using Wagmi, specifically tailored for the VERSE token ecosystem. These examples demonstrate how to connect to Web3 wallets and interact with VERSE-related smart contracts.
+The homepage (`pages/index.tsx`) includes examples of contract interactions using Wagmi, specifically tailored for the VERSE token ecosystem. These examples demonstrate how to connect to Web3 wallets and interact with VERSE-related smart contracts.
 
 ## 🔌 Automatic Wallet Connection
 
-Each dApp is configured to automatically attempt to connect to the user's Web3 wallet. This functionality is implemented in the layout files to ensure consistent behavior across all pages.
+Each dApp is configured to automatically attempt to connect to the user's Web3 wallet. This functionality is implemented in the _app.tsx files to ensure consistent behavior across all pages.
 
 ## 🌐 dApp Routing
 
@@ -96,6 +94,7 @@ This project is licensed under the MIT License.
 
 - 🪙 [Bitcoin.com VERSE Token](https://verse.bitcoin.com/)
 - 🌐 [Wagmi Documentation](https://wagmi.sh/)
+- 🔗 [Reown Documentation](https://docs.reown.com/overview)
 - 🚀 [NextJS Documentation](https://nextjs.org/docs)
 - 🦾 [TypeScript Documentation](https://www.typescriptlang.org/docs/)
 - 🎨 [Tailwind CSS Documentation](https://tailwindcss.com/docs)
